@@ -2,6 +2,6 @@
 
 Uses:
 
-- Poetry for package management.
-- Ruff for code quality.
-- Pytest for......
+- [Poetry](https://python-poetry.org/) for package management.
+- [Ruff](https://github.com/astral-sh/ruff) for code quality.
+- Pytest for......:✅
