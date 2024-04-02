@@ -1,4 +1,4 @@
-from playground.utils import greet_all, greeting, normalize_id
+from playground.utils import greet, greet_all, normalize_id
 
 
 def test_greet_all(capsys):
@@ -9,8 +9,8 @@ def test_greet_all(capsys):
 
 
 def test_greeting():
-    assert greeting("Alice") == "Hello Alice"
-    assert greeting("Bob") == "Hello Bob"
+    assert greet("Alice") == "Hello Alice"
+    assert greet("Bob") == "Hello Bob"
 
 
 def test_normalize_id():
