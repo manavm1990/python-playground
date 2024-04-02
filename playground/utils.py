@@ -19,3 +19,8 @@ def normalize_id(user_id: int | str) -> str:
         return f"user-{100_000 + user_id}"
     else:
         return user_id
+
+
+def sum_even_numbers(numbers: Iterable[int]) -> int:
+    """Given an iterable of integers, return the sum of all even numbers in the iterable."""
+    return sum(num for num in numbers if num % 2 == 0)
