@@ -1,11 +1,22 @@
-from playground.utils import greet, greet_all, normalize_id, sum_even_numbers
+from playground.utils import (
+    convert_to_uppercase,
+    greet,
+    greet_all,
+    normalize_id,
+    sum_even_numbers,
+)
+
+names = ["Alice", "Bob", "Charlie"]
 
 
-def test_greet_all(capsys):
-    names = ["Alice", "Bob", "Charlie"]
-    greet_all(names)
-    captured = capsys.readouterr()
-    assert captured.out == "Hello Alice\nHello Bob\nHello Charlie\n"
+def test_convert_to_uppercase():
+    result = convert_to_uppercase(names)
+    assert result == ["ALICE", "BOB", "CHARLIE"]
+
+
+def test_greet_all():
+    result = greet_all(["Alice", "Bob", "Charlie"])
+    assert result == ["Hello Alice", "Hello Bob", "Hello Charlie"]
 
 
 def test_greeting():
