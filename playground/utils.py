@@ -10,9 +10,8 @@ def greet(name: str) -> str:
     return "Hello " + name
 
 
-def greet_all(names: Iterable[str]) -> None:
-    for name in names:
-        greet(name)
+def greet_all(names: Iterable[str]) -> list:
+    return [greet(name) for name in names]
 
 
 def normalize_id(user_id: int | str) -> str:
