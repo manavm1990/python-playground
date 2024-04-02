@@ -12,7 +12,7 @@ def greet(name: str) -> str:
 
 def greet_all(names: Iterable[str]) -> None:
     for name in names:
-        print("Hello " + name)
+        greet(name)
 
 
 def normalize_id(user_id: int | str) -> str:
