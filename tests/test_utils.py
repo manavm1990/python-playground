@@ -1,5 +1,6 @@
 from playground.utils import (
     convert_to_uppercase,
+    count_words_in_file,
     get_second_largest,
     greet,
     greet_all,
@@ -14,6 +15,18 @@ numbers = [1, 2, 4, 5, 6, 8, 10, 86, 99]
 
 def test_convert_to_uppercase():
     assert convert_to_uppercase(names) == ["ALICE", "BOB", "CHARLIE"]
+
+
+def test_count_words_in_file(tmp_path):
+    # Arrange
+    example_file = tmp_path / "example_file.txt"
+    example_file.write_text("Hello, World! Hello")
+
+    # Act
+    result = count_words_in_file(str(example_file))
+
+    # Assert
+    assert result == {"hello": 2, "world": 1}
 
 
 def test_get_second_largest():
