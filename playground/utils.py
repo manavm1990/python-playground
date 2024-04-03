@@ -10,6 +10,13 @@ def greet(name: str) -> str:
     return "Hello " + name
 
 
+def get_second_largest(numbers: list) -> int | None:
+    if len(numbers) < 2:
+        return None
+    sorted_numbers = sorted(numbers)
+    return sorted_numbers[-2]
+
+
 def greet_all(names: Iterable[str]) -> list:
     return [greet(name) for name in names]
 
