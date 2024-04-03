@@ -31,3 +31,7 @@ def normalize_id(user_id: int | str) -> str:
 def sum_even_numbers(numbers: Iterable[int]) -> int:
     """Given an iterable of integers, return the sum of all even numbers in the iterable."""
     return sum(num for num in numbers if num % 2 == 0)
+
+
+def is_palindrome(s: str) -> bool:
+    return s == s[::-1]
