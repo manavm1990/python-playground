@@ -1,6 +1,7 @@
 from playground.utils import (
     convert_to_uppercase,
     count_words_in_file,
+    get_files_with_extension,
     get_second_largest,
     greet,
     greet_all,
@@ -27,6 +28,27 @@ def test_count_words_in_file(tmp_path):
 
     # Assert
     assert result == {"hello": 2, "world": 1}
+
+
+def test_get_files_with_extension(tmp_path):
+    # Arrange: Create a temporary directory with 2️⃣ `txt` files and 1️⃣ `log` file.
+    directory = tmp_path / "directory"
+    directory.mkdir()  # create directory
+    (directory / "file1.txt").touch()
+    (directory / "file2.txt").touch()
+    (directory / "file3.log").touch()
+
+    # Act: Seek `txt` files.
+    result = get_files_with_extension(str(directory), "txt")
+
+    # Assert
+    expected_files = ["file1.txt", "file2.txt"]  # Expected files with '.txt' extension
+    expected_files = [
+        str(directory / file)
+        for file in expected_files  # Generate expected absolute paths and convert to string
+    ]
+
+    assert set(result) == set(expected_files)
 
 
 def test_get_second_largest():
