@@ -20,6 +20,10 @@ def greet(name: str) -> str:
     return "Hello " + name
 
 
+def get_files_with_extension(directory_path: str, extension: str) -> list:
+    return [str(file) for file in Path(directory_path).rglob(f"*.{extension}")]
+
+
 def get_second_largest(numbers: list) -> int | None:
     if len(numbers) < 2:
         return None
