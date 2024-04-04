@@ -1,3 +1,7 @@
+import csv
+import json
+from pathlib import Path
+
 from playground.utils import (
     convert_to_uppercase,
     count_words_in_file,
@@ -7,6 +11,7 @@ from playground.utils import (
     greet_all,
     is_palindrome,
     normalize_id,
+    output_csv_to_json,
     sum_even_numbers,
 )
 
@@ -67,6 +72,29 @@ def test_greet_all():
 def test_greeting():
     assert greet("Alice") == "Hello Alice"
     assert greet("Bob") == "Hello Bob"
+
+
+def test_output_csv_to_json(tmp_path):
+    # Act
+    content = [["name", "age"], ["Alice", 20], ["Bob", 25]]
+
+    csv_tmp = tmp_path / "test.csv"
+    json_tmp = tmp_path / "test.json"
+
+    # `'w+'` is for reading the 💩 consistently across platforms
+    with Path.open(str(csv_tmp), "w+", newline="") as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerows(content)
+
+    # Act - The JSON file will now be created
+    output_csv_to_json(str(csv_tmp), str(json_tmp))
+
+    # Assert
+    with Path.open(str(json_tmp)) as json_file:
+        data = json.load(json_file)
+
+    expected_data = [{"name": "Alice", "age": "20"}, {"name": "Bob", "age": "25"}]
+    assert data == expected_data
 
 
 def test_is_palindrome():
