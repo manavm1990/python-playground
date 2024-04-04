@@ -16,10 +16,6 @@ def count_words_in_file(filename: str) -> dict:
     return dict(Counter(words))
 
 
-def greet(name: str) -> str:
-    return "Hello " + name
-
-
 def get_files_with_extension(directory_path: str, extension: str) -> list:
     return [str(file) for file in Path(directory_path).rglob(f"*.{extension}")]
 
@@ -29,6 +25,10 @@ def get_second_largest(numbers: list) -> int | None:
         return None
     sorted_numbers = sorted(numbers)
     return sorted_numbers[-2]
+
+
+def greet(name: str) -> str:
+    return "Hello " + name
 
 
 def greet_all(names: Iterable[str]) -> list:
