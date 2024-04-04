@@ -17,8 +17,8 @@ These can be found in [`utils.py`](./playground/utils.py).
     3. ~~Create a function that checks if a given string is a palindrome (reads the same forwards and backwards).~~
 2. File Handling:
     1. ~~Write a script that reads a text file and counts the frequency of each word in the file.~~
-    2. Implement a function that takes a directory path and a file extension, and returns a list of all files in the
-       directory with that extension.
+    2. ~~Implement a function that takes a directory path and a file extension, and returns a list of all files in the
+       directory with that extension.~~
     3. Create a script that reads a CSV file and converts it into a JSON file.
 3. Exception Handling:
     1. Modify the sum_even_numbers function to handle the case where the input is not an iterable of integers. Raise an
