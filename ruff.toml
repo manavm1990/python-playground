@@ -1,17 +1,14 @@
 target-version = "py312"
 
+[lint]
 # https://raw.githubusercontent.com/vitalik/django-ninja/master/pyproject.toml
 select = [
     "B", # flake8-bugbear
     "C", # flake8-comprehensions
     "E", # pycodestyle errors
     "F", # pyflakes
-    "FURB", # refurb
     "I", # isort
     "PTH", # flake8-use-pathlib
     "UP", # pyupgrade
     "W", # pycodestyle warnings
-]
-ignore = [
-    "E501", # line too long, handled by black
 ]
