@@ -81,8 +81,11 @@ def test_output_csv_to_json(tmp_path):
     csv_tmp = tmp_path / "test.csv"
     json_tmp = tmp_path / "test.json"
 
+    csv_path = Path(str(csv_tmp))
+    json_path = Path(str(json_tmp))
+
     # `'w+'` is for reading the 💩 consistently across platforms
-    with Path.open(str(csv_tmp), "w+", newline="") as csv_file:
+    with csv_path.open("w+", newline="") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerows(content)
 
@@ -90,7 +93,7 @@ def test_output_csv_to_json(tmp_path):
     output_csv_to_json(str(csv_tmp), str(json_tmp))
 
     # Assert
-    with Path.open(str(json_tmp)) as json_file:
+    with json_path.open() as json_file:
         data = json.load(json_file)
 
     expected_data = [{"name": "Alice", "age": "20"}, {"name": "Bob", "age": "25"}]
