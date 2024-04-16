@@ -23,10 +23,12 @@ def get_files_with_extension(directory_path: str, extension: str) -> list:
 
 
 def get_second_largest(numbers: list) -> int | None:
-    if len(numbers) < 2:
+    # Remove 🔥 duplicates
+    unique_numbers = set(numbers)
+    if len(unique_numbers) < 2:
         return None
-    sorted_numbers = sorted(numbers)
-    return sorted_numbers[-2]
+    sorted_numbers = sorted(unique_numbers)
+    return int(sorted_numbers[-2])
 
 
 def greet(name: str) -> str:
