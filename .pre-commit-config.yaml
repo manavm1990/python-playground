@@ -7,7 +7,7 @@ repos:
     rev: v1.7.1
     hooks:
       - id: mypy
-        exclude: (tests)/
+        exclude: 'tests/.*'
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.6
     hooks:
