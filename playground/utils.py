@@ -13,7 +13,6 @@ def calculate_tip(base_amt: float, tip_pct: float) -> tuple[str, str]:
 
 
 def convert_to_uppercase(strings: list) -> list:
-    """Given a list of trings, convert them all to UPPER CASE."""
     return [string.upper() for string in strings]
 
 
