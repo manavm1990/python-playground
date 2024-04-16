@@ -12,3 +12,6 @@ select = [
     "UP", # pyupgrade
     "W", # pycodestyle warnings
 ]
+ignore = [
+    "E501", # line too long, handled by black
+]
