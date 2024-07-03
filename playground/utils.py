@@ -24,6 +24,7 @@ def count_words_in_file(filename: str) -> dict:
 
 
 def get_files_with_extension(directory_path: str, extension: str) -> list:
+    # `str(file)` gives file path as a string instead of extra stuff with Path objects.
     return [str(file) for file in Path(directory_path).rglob(f"*.{extension}")]
 
 
