@@ -25,23 +25,23 @@ def test_rectangle_negative_width():
 
 def test_update_dimension_length_positive():
     rectangle = Rectangle(5, 4)
-    rectangle.update_dimension("l", 1)
+    rectangle.update_dimension("length", 1)
     assert rectangle.length == 6
 
 
 def test_update_dimension_length_negative():
     rectangle = Rectangle(6, 4)
     with pytest.raises(ValueError):
-        rectangle.update_dimension("l", -7)
+        rectangle.update_dimension("length", -7)
 
 
 def test_update_dimension_width_positive():
     rectangle = Rectangle(5, 4)
-    rectangle.update_dimension("w", 2)
+    rectangle.update_dimension("width", 2)
     assert rectangle.width == 6
 
 
 def test_update_dimension_width_negative():
     rectangle = Rectangle(5, 6)
     with pytest.raises(ValueError):
-        rectangle.update_dimension("w", -7)
+        rectangle.update_dimension("width", -7)
