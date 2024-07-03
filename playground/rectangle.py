@@ -2,7 +2,7 @@ from typing import Literal
 
 
 class Rectangle:
-    def __init__(self, length, width):
+    def __init__(self, length: float, width: float) -> None:
         if length <= 0:
             raise ValueError("Length cannot be negative.")
         if width <= 0:
@@ -10,13 +10,17 @@ class Rectangle:
         self.length = length
         self.width = width
 
-    def area(self):
+    # `self` is explicitly the first ARGUMENT of any INSTANCE METHOD.
+    def area(self) -> float:
         return self.length * self.width
 
-    def perimeter(self):
+    # `self` is always a reference to an instance of the class.
+    def perimeter(self) -> float:
         return 2 * (self.length + self.width)
 
-    def _set_dimension(self, dimension, delta):
+    def _set_dimension(
+        self, dimension: Literal["length", "width"], delta: float
+    ) -> None:
         prev_value = getattr(self, dimension)
         new_value = prev_value + delta
 
@@ -25,6 +29,7 @@ class Rectangle:
         else:
             setattr(self, dimension, new_value)
 
-    def update_dimension(self, dim: Literal["l", "w"], delta: float):
-        dimension = "length" if dim == "l" else "width"
+    def update_dimension(
+        self, dimension: Literal["length", "width"], delta: float
+    ) -> None:
         self._set_dimension(dimension, delta)
