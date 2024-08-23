@@ -9,7 +9,7 @@ from pathlib import Path
 def calculate_tip(base_amt: float, tip_pct: float) -> tuple[str, str]:
     tip_amt = base_amt * (tip_pct / 100)
     total_amt = base_amt + tip_amt
-    return f"${tip_amt:.2f}", f"${total_amt:.2f}"  # f-strings
+    return f"${tip_amt:.2f}", f"${total_amt:.2f}"  # "$15.00", "$115.00"
 
 
 def convert_to_uppercase(strings: list) -> list:
