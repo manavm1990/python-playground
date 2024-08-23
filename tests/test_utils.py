@@ -53,12 +53,10 @@ def test_get_files_with_extension(tmp_path):
 
     # Assert
     expected_files = ["file1.txt", "file2.txt"]  # Expected files with '.txt' extension
-    expected_files = [
-        str(directory / file)
-        for file in expected_files  # Generate expected absolute paths and convert to string
-    ]
+    # Generate expected absolute paths and convert to string
+    expected_files_with_paths = [str(directory / file) for file in expected_files]
 
-    assert set(result) == set(expected_files)
+    assert set(result) == set(expected_files_with_paths)
 
 
 def test_get_second_largest():
