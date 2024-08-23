@@ -65,7 +65,7 @@ def test_get_second_largest():
 
 
 def test_greet_all():
-    assert greet_all(["Alice", "Bob", "Charlie"]) == [
+    assert greet_all(names) == [
         "Hello Alice",
         "Hello Bob",
         "Hello Charlie",
