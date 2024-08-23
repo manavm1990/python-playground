@@ -20,7 +20,7 @@ def count_words_in_file(filename: str) -> dict:
     # `with` automatically closes the file
     with Path.open(Path(filename)) as file_contents:
         words = re.findall(r"\w+", file_contents.read().lower())
-    return dict(Counter(words))
+    return dict(Counter(words))  # {'hello': 2, 'world': 1}
 
 
 def get_files_with_extension(directory_path: str, extension: str) -> list:
