@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from playground.utils import (
+    calculate_tip,
     convert_to_uppercase,
     count_words_in_file,
     get_files_with_extension,
@@ -17,6 +18,10 @@ from playground.utils import (
 
 names = ["Alice", "Bob", "Charlie"]
 numbers = [1, 2, 4, 5, 6, 8, 10, 86, 99]
+
+
+def test_calculate_tip():
+    assert calculate_tip(100.00, 15) == ("$15.00", "$115.00")
 
 
 def test_convert_to_uppercase():
