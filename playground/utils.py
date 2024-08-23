@@ -47,18 +47,19 @@ def greet_all(names: Iterable[str]) -> list:
 
 
 def is_palindrome(s: str) -> bool:
-    return s == s[::-1]
+    return (
+        s == s[::-1]
+    )  # no start, no stop, and `-1` step means "go backwards" ➡️ reverse!
 
 
 def normalize_id(user_id: int | str) -> str:
-    if isinstance(user_id, int):
-        return f"user-{100_000 + user_id}"
+    if isinstance(user_id, int):  # Is `user_id` an integer?
+        return f"user-{100_000 + user_id}"  # adds 100000 to `user_id` while formatting as a string
     else:
         return user_id
 
 
 def output_csv_to_json(csv_file_path: str, json_file_path: str) -> None:
-    # Assign a name reference to the opened file.
     with Path.open(Path(csv_file_path)) as csv_file:
         csv_data = list(csv.DictReader(csv_file))
 
@@ -67,5 +68,5 @@ def output_csv_to_json(csv_file_path: str, json_file_path: str) -> None:
 
 
 def sum_even_numbers(numbers: Iterable[int]) -> int:
-    # Given an iterable of integers, return the sum of all even numbers in the iterable.
+    """Given an iterable of integers, return the sum of all even numbers in the iterable."""
     return sum(num for num in numbers if num % 2 == 0)
