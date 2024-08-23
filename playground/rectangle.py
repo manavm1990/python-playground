@@ -10,14 +10,6 @@ class Rectangle:
         self.length = length
         self.width = width
 
-    # `self` is explicitly the first ARGUMENT of any INSTANCE METHOD.
-    def area(self) -> float:
-        return self.length * self.width
-
-    # `self` is always a reference to an instance of the class.
-    def perimeter(self) -> float:
-        return 2 * (self.length + self.width)
-
     def _set_dimension(
         self, dimension: Literal["length", "width"], delta: float
     ) -> None:
@@ -28,6 +20,12 @@ class Rectangle:
             raise ValueError(f"Unable to comply. {dimension} cannot be negative.")
         else:
             setattr(self, dimension, new_value)
+
+    def area(self) -> float:
+        return self.length * self.width
+
+    def perimeter(self) -> float:
+        return 2 * (self.length + self.width)
 
     def update_dimension(
         self, dimension: Literal["length", "width"], delta: float
