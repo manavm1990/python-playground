@@ -21,3 +21,8 @@ def test_deposit(bank_account):
 def test_withdraw(bank_account):
     bank_account.withdraw(50.00)
     assert bank_account.get_balance() == 50.00
+
+
+def test_withdraw_insufficient_funds(bank_account):
+    with pytest.raises(ValueError, match="Insufficient Funds"):
+        bank_account.withdraw(200.00)
