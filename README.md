@@ -23,7 +23,7 @@ These can be found in [`utils.py`](./playground/utils.py).
 3. Object-Oriented Programming (OOP):
     1. ~~Define a Rectangle class with attributes for length and width, and methods to calculate the area and
        perimeter.~~
-    2. Create a BankAccount class with methods for deposit, withdrawal, and balance inquiry.
+    2. ~~Create a BankAccount class with methods for deposit, withdrawal, and balance inquiry.~~
     3. Implement an Employee class with attributes for name, ID, and salary, and methods to calculate the annual salary
        and apply a raise.
 4. Decorators:
