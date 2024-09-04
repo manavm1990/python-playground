@@ -1,6 +1,9 @@
+# tests/test_utils.py
 import csv
 import json
 from pathlib import Path
+
+import pytest
 
 from playground.utils import (
     calculate_tip,
@@ -20,6 +23,34 @@ names = ["Alice", "Bob", "Charlie"]
 numbers = [1, 2, 4, 5, 6, 8, 10, 86, 99]
 
 
+@pytest.fixture
+def example_file(tmp_path):
+    file = tmp_path / "example_file.txt"
+    file.write_text("Hello, World! Hello")
+    return file
+
+
+@pytest.fixture
+def example_directory(tmp_path):
+    directory = tmp_path / "directory"
+    directory.mkdir()
+    (directory / "file1.txt").touch()
+    (directory / "file2.txt").touch()
+    (directory / "file3.log").touch()
+    return directory
+
+
+@pytest.fixture
+def csv_and_json_paths(tmp_path):
+    csv_tmp = tmp_path / "test.csv"
+    json_tmp = tmp_path / "test.json"
+
+    csv_path = Path(str(csv_tmp))
+    json_path = Path(str(json_tmp))
+
+    return csv_path, json_path
+
+
 def test_calculate_tip():
     assert calculate_tip(100.00, 15) == ("$15.00", "$115.00")
 
@@ -28,34 +59,17 @@ def test_convert_to_uppercase():
     assert convert_to_uppercase(names) == ["ALICE", "BOB", "CHARLIE"]
 
 
-def test_count_words_in_file(tmp_path):
-    # Arrange
-    example_file = tmp_path / "example_file.txt"
-    example_file.write_text("Hello, World! Hello")
-
-    # Act
+def test_count_words_in_file(example_file):
     result = count_words_in_file(str(example_file))
-
-    # Assert
     assert result == {"hello": 2, "world": 1}
 
 
-def test_get_files_with_extension(tmp_path):
-    # Arrange: Create a temporary directory with 2️⃣ `txt` files and 1️⃣ `log` file.
-    directory = tmp_path / "directory"
-    directory.mkdir()  # create directory
-    (directory / "file1.txt").touch()
-    (directory / "file2.txt").touch()
-    (directory / "file3.log").touch()
-
-    # Act: Seek `txt` files.
-    result = get_files_with_extension(str(directory), "txt")
-
-    # Assert
-    expected_files = ["file1.txt", "file2.txt"]  # Expected files with '.txt' extension
-    # Generate expected absolute paths and convert to string
-    expected_files_with_paths = [str(directory / file) for file in expected_files]
-
+def test_get_files_with_extension(example_directory):
+    result = get_files_with_extension(str(example_directory), "txt")
+    expected_files = ["file1.txt", "file2.txt"]
+    expected_files_with_paths = [
+        str(example_directory / file) for file in expected_files
+    ]
     assert set(result) == set(expected_files_with_paths)
 
 
@@ -65,11 +79,7 @@ def test_get_second_largest():
 
 
 def test_greet_all():
-    assert greet_all(names) == [
-        "Hello Alice",
-        "Hello Bob",
-        "Hello Charlie",
-    ]
+    assert greet_all(names) == ["Hello Alice", "Hello Bob", "Hello Charlie"]
 
 
 def test_greeting():
@@ -77,25 +87,16 @@ def test_greeting():
     assert greet("Bob") == "Hello Bob"
 
 
-def test_output_csv_to_json(tmp_path):
-    # Act
+def test_output_csv_to_json(csv_and_json_paths):
+    csv_path, json_path = csv_and_json_paths
     content = [["name", "age"], ["Alice", 20], ["Bob", 25]]
 
-    csv_tmp = tmp_path / "test.csv"
-    json_tmp = tmp_path / "test.json"
-
-    csv_path = Path(str(csv_tmp))
-    json_path = Path(str(json_tmp))
-
-    # `'w+'` is for reading the 💩 consistently across platforms
     with csv_path.open("w+", newline="") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerows(content)
 
-    # Act - The JSON file will now be created
-    output_csv_to_json(str(csv_tmp), str(json_tmp))
+    output_csv_to_json(str(csv_path), str(json_path))
 
-    # Assert
     with json_path.open() as json_file:
         data = json.load(json_file)
 
