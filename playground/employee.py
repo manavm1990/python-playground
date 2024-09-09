@@ -16,10 +16,6 @@ class Employee:
     def emp_id(self) -> int:
         return self.__emp_id
 
-    @emp_id.setter
-    def emp_id(self, emp_id: int) -> None:
-        self.__emp_id = emp_id
-
     @property
     def salary(self) -> float:
         return self.__salary
