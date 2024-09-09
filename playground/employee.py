@@ -4,7 +4,7 @@ class Employee:
         self.emp_id = emp_id
         self.salary = monthly_salary
 
-    def annual_salary(self) -> float:
+    def get_annual_salary(self) -> float:
         return self.salary * 12
 
     def apply_raise(self, raise_amount: float) -> None:
