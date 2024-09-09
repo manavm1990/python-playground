@@ -29,3 +29,16 @@ class Employee:
 
     def apply_raise(self, raise_amount: float) -> None:
         self.__salary += raise_amount
+
+    def __str__(self) -> str:
+        """Returns a string representation of the employee."""
+        return f"Employee: {self.__name}, ID: {self.__emp_id}, Salary: {self.__salary}"
+
+    def __repr__(self) -> str:
+        """Returns a detailed string representation of the employee."""
+        return f"Employee(name={self.__name}, emp_id={self.__emp_id}, salary={self.__salary})"
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Employee):
+            return NotImplemented
+        return self.__emp_id == other.__emp_id

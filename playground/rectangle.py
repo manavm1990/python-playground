@@ -10,7 +10,6 @@ class Rectangle:
         self.__length = length
         self.__width = width
 
-    # `@property` marks a 'getter'
     @property
     def length(self) -> float:
         return self.__length
@@ -52,3 +51,14 @@ class Rectangle:
         self, dimension: Literal["length", "width"], delta: float
     ) -> None:
         self._set_dimension(dimension, delta)
+
+    def __str__(self) -> str:
+        return f"Rectangle(length={self.__length}, width={self.__width})"
+
+    def __repr__(self) -> str:
+        return f"Rectangle(length={self.__length}, width={self.__width})"
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Rectangle):
+            return NotImplemented
+        return self.__length == other.__length and self.__width == other.__width

@@ -24,3 +24,9 @@ class BankAccount:
 
     def get_balance(self) -> float:
         return self.__balance
+
+    def __str__(self) -> str:
+        return f"BankAccount(balance={self.__balance:.2f})"
+
+    def __repr__(self) -> str:
+        return f"BankAccount(initial_balance={self.__balance:.2f})"
