@@ -1,11 +1,23 @@
 # playground/bank_account.py
 class BankAccount:
-    def __init__(self, initial_balance: float = 0.00) -> None:
+    def __init__(
+        self, name: str, account_id: int, initial_balance: float = 0.00
+    ) -> None:
+        self.__name: str = name
+        self.__account_id: int = account_id
         self.__balance: float = initial_balance
 
     @property
     def balance(self) -> float:
         return self.__balance
+
+    @property
+    def name(self) -> str:
+        return self.__name
+
+    @name.setter
+    def name(self, name: str) -> None:
+        self.__name = name
 
     def deposit(self, amount: float) -> float:
         if amount < 0:
