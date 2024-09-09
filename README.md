@@ -24,8 +24,8 @@ These can be found in [`utils.py`](./playground/utils.py).
     1. ~~Define a Rectangle class with attributes for length and width, and methods to calculate the area and
        perimeter.~~
     2. ~~Create a BankAccount class with methods for deposit, withdrawal, and balance inquiry.~~
-    3. Implement an Employee class with attributes for name, ID, and salary, and methods to calculate the annual salary
-       and apply a raise.
+    3. ~~Implement an Employee class with attributes for name, ID, and salary, and methods to calculate the annual salary
+       and apply a raise.~~
 4. Decorators:
     1. Write a decorator that measures the execution time of a function and prints it.
     2. Implement a decorator that caches the result of a function for a given set of arguments to improve performance.
