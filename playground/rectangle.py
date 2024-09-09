@@ -7,8 +7,29 @@ class Rectangle:
             raise ValueError("Length cannot be negative.")
         if width <= 0:
             raise ValueError("Width cannot be negative.")
-        self.length = length
-        self.width = width
+        self.__length = length
+        self.__width = width
+
+    # `@property` marks a 'getter'
+    @property
+    def length(self) -> float:
+        return self.__length
+
+    @length.setter
+    def length(self, length: float) -> None:
+        if length <= 0:
+            raise ValueError("Length cannot be negative.")
+        self.__length = length
+
+    @property
+    def width(self) -> float:
+        return self.__width
+
+    @width.setter
+    def width(self, width: float) -> None:
+        if width <= 0:
+            raise ValueError("Width cannot be negative.")
+        self.__width = width
 
     def _set_dimension(
         self, dimension: Literal["length", "width"], delta: float
@@ -22,10 +43,10 @@ class Rectangle:
             setattr(self, dimension, new_value)
 
     def area(self) -> float:
-        return self.length * self.width
+        return self.__length * self.__width
 
     def perimeter(self) -> float:
-        return 2 * (self.length + self.width)
+        return 2 * (self.__length + self.__width)
 
     def update_dimension(
         self, dimension: Literal["length", "width"], delta: float
