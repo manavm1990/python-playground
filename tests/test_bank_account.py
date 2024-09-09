@@ -7,7 +7,7 @@ from playground.bank_account import BankAccount
 @pytest.fixture
 def bank_account():
     # Initialize a new BankAccount instance for each test.
-    return BankAccount(100.00)
+    return BankAccount(name="Richard Beninya", account_id=666, initial_balance=100.00)
 
 
 def test_get_balance(bank_account):
