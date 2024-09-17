@@ -2,7 +2,7 @@
 
 import time
 
-from playground.decorators import time_it
+from playground.decorators.time_it import time_it
 
 
 @time_it

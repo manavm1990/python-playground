@@ -1,7 +1,7 @@
 # tests/test_bank_account.py
 import pytest
 
-from playground.classes import BankAccount
+from playground.classes.bank_account import BankAccount
 
 
 @pytest.fixture

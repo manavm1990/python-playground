@@ -1,7 +1,7 @@
 # tests/test_employee.py
 import pytest
 
-from playground.classes import Employee
+from playground.classes.employee import Employee
 
 
 @pytest.fixture
