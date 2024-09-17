@@ -3,13 +3,15 @@ from collections.abc import Callable
 from typing import Any
 
 
-def cache_decorator(
+def decorate_cache(
     func: Callable[..., Any],
 ) -> Callable[..., Any]:
     cache = {}  # dictionary
 
     @functools.wraps(func)  # decorator to preserve metadata
-    def wrapper(*args: Any, **kwargs: Any) -> Any:
+    # `*args` - positional arguments (e.g. *args)
+    # `**kwargs` - keyword arguments (e.g. **object/rest parameters**)
+    def wrap(*args: Any, **kwargs: Any) -> Any:
         # Is it in cache?
         key = (args, frozenset(kwargs.items()))
 
@@ -19,4 +21,4 @@ def cache_decorator(
             cache[key] = result
         return cache[key]
 
-    return wrapper
+    return wrap

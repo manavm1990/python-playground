@@ -1,27 +1,27 @@
-from playground.cache_decorator import cache_decorator
+from playground.cache_decorator import decorate_cache
 
 
-@cache_decorator
+@decorate_cache
 def no_args_function():
     return "no_args"
 
 
-@cache_decorator
+@decorate_cache
 def add(a, b):
     return a + b
 
 
-@cache_decorator
+@decorate_cache
 def subtract(a, b=0):
     return a - b
 
 
-@cache_decorator
+@decorate_cache
 def multiply(a, b):
     return a * b
 
 
-@cache_decorator
+@decorate_cache
 def concat(*args, **kwargs):
     return "".join(str(arg) for arg in args) + "".join(
         f"{key}={value}" for key, value in kwargs.items()
