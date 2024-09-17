@@ -8,7 +8,7 @@ from typing import Any
 def time_it(
     func: Callable[..., Any],
 ) -> Callable[..., Any]:
-    def wrapper(*args: Any, **kwargs: Any) -> Any:
+    def wrap(*args: Any, **kwargs: Any) -> Any:
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
@@ -16,4 +16,4 @@ def time_it(
         print(f"Function `{func.__name__}` executed in {execution_time:.6f} seconds")
         return result
 
-    return wrapper
+    return wrap
