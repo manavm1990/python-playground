@@ -1,4 +1,4 @@
-from playground.cache_decorator import decorate_cache
+from playground.decorators import decorate_cache
 
 
 @decorate_cache

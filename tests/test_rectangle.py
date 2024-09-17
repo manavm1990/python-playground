@@ -1,7 +1,7 @@
 # tests/test_rectangle.py
 import pytest
 
-from playground.rectangle import Rectangle
+from playground.classes import Rectangle
 
 
 @pytest.fixture
