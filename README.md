@@ -9,8 +9,6 @@ Uses:
 
 ## Lurning Challenges
 
-These can be found in [`utils.py`](./playground/utils.py).
-
 1. Function Exercises:
     1. ~~Write a function that takes a list of strings and returns a new list with all strings converted to uppercase.~~
     2. ~~Implement a function that takes a list of numbers and returns the second largest number in the list.~~
