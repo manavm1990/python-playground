@@ -1,4 +1,4 @@
-# Fixin' To Lurning Me Some Python 🐍
+# Fixin' To Lurn Me Some Python 🐍
 
 Uses:
 
