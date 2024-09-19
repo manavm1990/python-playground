@@ -31,7 +31,7 @@ These can be found in [`utils.py`](./playground/utils.py).
     1. ~~Write a decorator that measures the execution time of a function and prints it.~~
     2. ~~Implement a decorator that caches the result of a function for a given set of arguments to improve
        performance.~~
-    3. Create a decorator that logs the input and output of a function.
+    3. ~~Create a decorator that logs the input and output of a function.~~
 5. Generators and Iterators:
     1. Modify the sum_even_numbers function to use a generator expression instead of a list comprehension.
     2. Implement a generator function that yields Fibonacci numbers up to a given limit.
