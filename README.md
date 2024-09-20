@@ -31,7 +31,7 @@ Uses:
        performance.~~
     3. ~~Create a decorator that logs the input and output of a function.~~
 5. Generators and Iterators:
-    1. Modify the sum_even_numbers function to use a generator expression instead of a list comprehension.
+    1. ~~Modify the `sum_even_numbers` function to use a generator expression instead of a list comprehension.~~
     2. Implement a generator function that yields Fibonacci numbers up to a given limit.
     3. Create an iterator class that iterates over the lines of a file.
 6. Networking:
