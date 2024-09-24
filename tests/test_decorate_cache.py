@@ -28,21 +28,21 @@ def concat(*args, **kwargs):
     )
 
 
-def test_cache_for_function_without_arguments():
+def test_cache_function_without_arguments():
     result_first_call = no_args_function()
     result_second_call = no_args_function()
     assert result_first_call == result_second_call
     assert result_first_call is result_second_call
 
 
-def test_cache_for_function_with_positional_arguments():
+def test_cache_function_with_positional_arguments():
     result_first_call = add(1, 2)
     result_second_call = add(1, 2)
     assert result_first_call == result_second_call
     assert result_first_call is result_second_call
 
 
-def test_cache_for_function_with_keyword_arguments():
+def test_cache_function_with_keyword_arguments():
     result_first_call = subtract(a=5, b=3)
     result_second_call = subtract(a=5, b=3)
     assert result_first_call == result_second_call
