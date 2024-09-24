@@ -28,10 +28,10 @@ class BankAccount:
     def withdraw(self, amount: float) -> float:
         if amount < 0:
             raise ValueError("Withdrawal amount must be positive")
-        if amount <= self.__balance:
-            self.__balance -= amount
-        else:
+        if amount > self.__balance:
             raise ValueError("Insufficient Funds")
+        else:
+            self.__balance -= amount
         return self.__balance
 
     def get_balance(self) -> float:
