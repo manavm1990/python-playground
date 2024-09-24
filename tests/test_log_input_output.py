@@ -1,7 +1,7 @@
-from playground.decorators.log_input_output import log_input_output
+from playground.decorators.log_input_output import decorate_log_input_output
 
 
-@log_input_output
+@decorate_log_input_output
 def sample_function(a, b=0):
     return a + b
 

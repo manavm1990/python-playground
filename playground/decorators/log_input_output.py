@@ -5,7 +5,7 @@ from collections.abc import Callable
 from typing import Any
 
 
-def log_input_output(
+def decorate_log_input_output(
     func: Callable[..., Any],
 ) -> Callable[..., Any]:
     @functools.wraps(func)
