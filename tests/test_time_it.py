@@ -2,18 +2,18 @@
 
 import time
 
-from playground.decorators.time_it import time_it
+from playground.decorators.time_it import decorate_time_it
 
 
-@time_it
-def test_function():
+@decorate_time_it
+def iterate():
     for _ in range(1000000):
         pass
 
 
 def test_time_it_decorator(capfd):
     start_time = time.time()
-    test_function()
+    iterate()
     out, err = capfd.readouterr()
     end_time = time.time()
 

@@ -5,7 +5,7 @@ from collections.abc import Callable
 from typing import Any
 
 
-def time_it(
+def decorate_time_it(
     func: Callable[..., Any],
 ) -> Callable[..., Any]:
     def wrap(*args: Any, **kwargs: Any) -> Any:

@@ -2,7 +2,7 @@ from playground.decorators.cache import decorate_cache
 
 
 @decorate_cache
-def no_args_function():
+def ret_no_args():
     return "no_args"
 
 
@@ -30,8 +30,8 @@ def concat(*args, **kwargs):
 
 
 def test_cache_function_without_arguments():
-    result_first_call = no_args_function()
-    result_second_call = no_args_function()
+    result_first_call = ret_no_args()
+    result_second_call = ret_no_args()
     assert result_first_call == result_second_call
     assert result_first_call is result_second_call
 
