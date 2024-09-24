@@ -21,6 +21,7 @@ def multiply(a, b):
     return a * b
 
 
+# ⚠️ Can't use `lambda` with a **decorator.**
 @decorate_cache
 def concat(*args, **kwargs):
     return "".join(str(arg) for arg in args) + "".join(
