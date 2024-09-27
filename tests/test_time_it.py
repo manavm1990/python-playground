@@ -17,8 +17,8 @@ def test_time_it_decorator(capfd):
     out, err = capfd.readouterr()
     end_time = time.time()
 
-    # Check that output contains the correct function name
-    assert "Function `test_function` executed in" in out
+    # Check that output contains the correct function name ☝️
+    assert "Function `iterate` executed in" in out
 
     # Check that the printed execution time is within expected bounds
     execution_time = float(out.split(" ")[-2])

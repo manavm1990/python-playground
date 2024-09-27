@@ -24,14 +24,14 @@ numbers = [1, 2, 4, 5, 6, 8, 10, 86, 99]
 
 
 @pytest.fixture
-def create_example_file(tmp_path):
+def example_file(tmp_path):
     file = tmp_path / "example_file.txt"
     file.write_text("Hello, World! Hello")
     return file
 
 
 @pytest.fixture
-def create_example_directory(tmp_path):
+def example_directory(tmp_path):
     directory = tmp_path / "directory"
     directory.mkdir()
     (directory / "file1.txt").touch()
@@ -41,7 +41,7 @@ def create_example_directory(tmp_path):
 
 
 @pytest.fixture
-def create_csv_and_json_paths(tmp_path):
+def csv_and_json_paths(tmp_path):
     csv_tmp = tmp_path / "test.csv"
     json_tmp = tmp_path / "test.json"
 

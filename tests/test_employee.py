@@ -5,7 +5,7 @@ from playground.classes.employee import Employee
 
 
 @pytest.fixture
-def init_employee():
+def employee():
     return Employee(name="Jane Doe", emp_id=5678, monthly_salary=6000.0)
 
 

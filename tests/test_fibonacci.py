@@ -1,5 +1,5 @@
 # test_fibonacci.py
-from playground.fibonacci import generate_fibonacci
+from playground.gen_fibonacci import generate_fibonacci
 
 
 def test_generate_fibonacci():

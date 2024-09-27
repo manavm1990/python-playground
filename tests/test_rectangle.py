@@ -5,7 +5,7 @@ from playground.classes.rectangle import Rectangle
 
 
 @pytest.fixture
-def init_rectangle():
+def rectangle():
     # Initialize a new Rectangle instance for each test.
     return Rectangle(5, 4)
 
