@@ -1,4 +1,5 @@
-# test_rest_api.py
+# tests/test_rest_api.py
+
 import json
 import threading
 from http.client import HTTPConnection

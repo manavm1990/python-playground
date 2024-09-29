@@ -1,4 +1,4 @@
-# test_file_iterator.py
+# tests/test_file_iterator.py
 
 import pytest
 

@@ -1,4 +1,4 @@
-# test_time_it.py
+# tests/test_time_it.py
 
 import time
 
