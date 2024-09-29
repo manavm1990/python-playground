@@ -35,6 +35,6 @@ Uses:
     2. ~~Implement a generator function that yields Fibonacci numbers up to a given limit.~~
     3. ~~Create an iterator class that iterates over the lines of a file.~~
 6. Networking:
-    1. Write a script that retrieves the HTML content of a given URL using the requests library.
+    1. ~~Write a script that retrieves the HTML content of a given URL using the requests library.~~
     2. Implement a simple client-server communication using sockets.
     3. Create a script that downloads files from a remote server using FTP.
