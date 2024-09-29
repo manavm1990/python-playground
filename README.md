@@ -37,4 +37,4 @@ Uses:
 6. Networking:
     1. ~~Write a script that retrieves the HTML content of a given URL using the requests library.~~
     2. ~~Implement a simple client-server communication using sockets.~~
-    3. Create a script that downloads files from a remote server using FTP.
+    3. ~~Create a simple RESTful API using `http.server`.~~
