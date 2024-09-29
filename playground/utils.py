@@ -5,6 +5,8 @@ from collections import Counter
 from collections.abc import Iterable
 from pathlib import Path
 
+import requests
+
 
 def calculate_tip(base_amt: float, tip_pct: float) -> tuple[str, str]:
     tip_amt = base_amt * (tip_pct / 100)
@@ -26,6 +28,11 @@ def count_words_in_file(filename: str) -> dict:
 def get_files_with_extension(directory_path: str, extension: str) -> list:
     # `str(file)` gives file path as a string instead of extra stuff with Path objects.
     return [str(file) for file in Path(directory_path).rglob(f"*.{extension}")]
+
+
+def get_html_content(url: str) -> str:
+    response = requests.get(url)
+    return response.text
 
 
 def get_second_largest(numbers: list) -> int | None:

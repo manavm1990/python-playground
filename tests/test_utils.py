@@ -2,6 +2,7 @@
 import csv
 import json
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 
@@ -10,6 +11,7 @@ from playground.utils import (
     convert_to_uppercase,
     count_words_in_file,
     get_files_with_extension,
+    get_html_content,
     get_second_largest,
     greet,
     greet_all,
@@ -21,6 +23,17 @@ from playground.utils import (
 
 names = ["Alice", "Bob", "Charlie"]
 numbers = [1, 2, 4, 5, 6, 8, 10, 86, 99]
+
+
+@pytest.fixture
+def csv_and_json_paths(tmp_path):
+    csv_tmp = tmp_path / "test.csv"
+    json_tmp = tmp_path / "test.json"
+
+    csv_path = Path(str(csv_tmp))
+    json_path = Path(str(json_tmp))
+
+    return csv_path, json_path
 
 
 @pytest.fixture
@@ -41,14 +54,10 @@ def example_directory(tmp_path):
 
 
 @pytest.fixture
-def csv_and_json_paths(tmp_path):
-    csv_tmp = tmp_path / "test.csv"
-    json_tmp = tmp_path / "test.json"
-
-    csv_path = Path(str(csv_tmp))
-    json_path = Path(str(json_tmp))
-
-    return csv_path, json_path
+def url_and_html():
+    test_url = "https://example.com"
+    test_html = "<html><body>Example</body></html>"
+    return test_url, test_html
 
 
 def test_calculate_tip():
@@ -62,6 +71,17 @@ def test_convert_to_uppercase():
 def test_count_words_in_file(example_file):
     result = count_words_in_file(str(example_file))
     assert result == {"hello": 2, "world": 1}
+
+
+def test_get_html_content(url_and_html):
+    test_url, test_html = url_and_html
+
+    with patch("requests.get") as mock_get:
+        mock_get.return_value.text = test_html
+
+        response = get_html_content(test_url)
+
+        assert response == test_html
 
 
 def test_get_files_with_extension(example_directory):
