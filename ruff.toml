@@ -14,4 +14,5 @@ select = [
 ]
 ignore = [
     "E501", # line too long, handled by black
+    "N802" # function name should be lowercase, breaks `http.server` conventions
 ]
